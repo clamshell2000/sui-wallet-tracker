@@ -1,0 +1,11 @@
+{
+  "name": "sui-wallet-tracker",
+  "version": "1.0.0",
+  "description": "Telegram MiniApp for tracking Sui blockchain wallets",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r frontend/* dist/"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
