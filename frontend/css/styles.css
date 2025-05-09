@@ -1,0 +1,402 @@
+:root {
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-text-color: #000000;
+    --tg-theme-hint-color: #999999;
+    --tg-theme-link-color: #2481cc;
+    --tg-theme-button-color: #2481cc;
+    --tg-theme-button-text-color: #ffffff;
+    --primary-color: #2481cc;
+    --secondary-color: #f0f0f0;
+    --danger-color: #e53935;
+    --success-color: #43a047;
+    --border-radius: 8px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    color: var(--tg-theme-text-color, #000000);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 100%;
+    padding: var(--spacing-md);
+}
+
+header {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Buttons */
+button {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.primary-btn {
+    background-color: var(--tg-theme-button-color, var(--primary-color));
+    color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: var(--tg-theme-text-color, #000000);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: #ffffff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+/* Wallet List */
+.wallets-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.wallet-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wallet-info h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.wallet-address {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+    word-break: break-all;
+}
+
+.wallet-balance {
+    font-weight: 600;
+    color: var(--tg-theme-text-color, #000000);
+}
+
+/* Asset List */
+.assets-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.assets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.assets-tabs {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.asset-tab {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    background-color: var(--secondary-color);
+    color: var(--tg-theme-hint-color, #999999);
+}
+
+.asset-tab.active {
+    background-color: var(--tg-theme-button-color, var(--primary-color));
+    color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+.asset-section {
+    display: none;
+}
+
+.asset-section.active {
+    display: block;
+}
+
+.asset-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.asset-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.asset-info {
+    flex: 1;
+}
+
+.asset-info h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1rem;
+}
+
+.asset-type {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+    word-break: break-all;
+}
+
+.asset-balance {
+    font-weight: 600;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.asset-value {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+    text-align: right;
+}
+
+/* NFT specific styles */
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.nft-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nft-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-xs);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nft-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nft-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nft-collection {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.refresh-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.refresh-btn.loading svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Transaction List */
+.transactions-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.transaction-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+.transaction-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+}
+
+.transaction-hash {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+    word-break: break-all;
+}
+
+.transaction-time {
+    font-size: 0.8rem;
+    color: var(--tg-theme-hint-color, #999999);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--tg-theme-hint-color, #999999);
+}
+
+input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--tg-theme-hint-color, #999999);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    color: var(--tg-theme-text-color, #000000);
+}
+
+/* Empty States and Loading */
+.empty-state, .loading {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--tg-theme-hint-color, #999999);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-md);
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+}

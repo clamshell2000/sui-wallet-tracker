@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sui Wallet Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Telegram MiniApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sui Wallet Tracker</h1>
+        </header>
+        
+        <div class="wallet-section">
+            <div class="section-header">
+                <h2>Your Wallets</h2>
+                <button id="add-wallet-btn" class="primary-btn">Add Wallet</button>
+            </div>
+            
+            <div id="wallets-list" class="wallets-container">
+                <!-- Wallet items will be added here dynamically -->
+                <div class="empty-state" id="empty-wallets">
+                    <p>No wallets added yet. Add a wallet to start tracking.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add Wallet Modal -->
+        <div id="add-wallet-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Add Wallet</h2>
+                <div class="input-group">
+                    <label for="wallet-address">Sui Wallet Address</label>
+                    <input type="text" id="wallet-address" placeholder="Enter Sui wallet address">
+                </div>
+                <div class="input-group">
+                    <label for="wallet-name">Wallet Name (Optional)</label>
+                    <input type="text" id="wallet-name" placeholder="Enter a name for this wallet">
+                </div>
+                <div class="button-group">
+                    <button id="scan-qr-btn" class="secondary-btn">Scan QR Code</button>
+                    <button id="save-wallet-btn" class="primary-btn">Save Wallet</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wallet Details Modal -->
+        <div id="wallet-details-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="wallet-detail-title">Wallet Details</h2>
+                <div class="wallet-info">
+                    <p id="wallet-address-display"></p>
+                </div>
+                <div class="asset-section">
+                    <div class="assets-header">
+                        <h3>Assets</h3>
+                        <button id="refresh-assets-btn" class="refresh-btn secondary-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                            </svg>
+                            Refresh
+                        </button>
+                    </div>
+                    
+                    <div class="assets-tabs">
+                        <div id="coins-tab" class="asset-tab active">Coins</div>
+                        <div id="nfts-tab" class="asset-tab">NFTs</div>
+                    </div>
+                    
+                    <div id="coins-section" class="asset-section active">
+                        <div id="coins-list" class="assets-container">
+                            <!-- Coin items will be added here dynamically -->
+                            <div class="loading" id="coins-loading">
+                                <p>Loading coins...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="nfts-section" class="asset-section">
+                        <div id="nfts-list" class="nft-grid">
+                            <!-- NFT items will be added here dynamically -->
+                            <div class="loading" id="nfts-loading">
+                                <p>Loading NFTs...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction-section">
+                    <h3>Recent Transactions</h3>
+                    <div id="transactions-list" class="transactions-container">
+                        <!-- Transaction items will be added here dynamically -->
+                        <div class="loading" id="transactions-loading">
+                            <p>Loading transactions...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="remove-wallet-btn" class="danger-btn">Remove Wallet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/telegram.js"></script>
+    <script src="js/sui.js"></script>
+    <script src="js/wallet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
